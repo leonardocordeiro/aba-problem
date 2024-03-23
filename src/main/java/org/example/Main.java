@@ -6,13 +6,13 @@ public class Main {
 
         Thread t1 = new Thread(() -> {
             account.deposit(10);
-            account.cashout(5);
+            account.withdraw(5);
         });
         t1.setName("t1");
 
         Thread t2 = new Thread(() -> {
             account.deposit(10);
-            account.cashout(10);
+            account.withdraw(10);
         });
         t2.setName("t2");
 

@@ -11,11 +11,11 @@ public class Account {
         balance.compareAndSet(currentAmount, currentAmount + amount, stamps[0], ++stamps[0]);
     }
 
-    public void cashout(Integer amount) {
+    public void withdraw(Integer amount) {
         int[] stamps = new int[1];
         Integer currentAmount = balance.get(stamps);
-        sleep();
-        balance.compareAndSet(currentAmount, currentAmount - amount, stamps[0], stamps[0] + 1);
+        sleep(); // aba will happen here
+        balance.compareAndSet(currentAmount, currentAmount - amount, stamps[0], ++stamps[0]);
     }
 
     public Integer getBalance() {
